@@ -1,8 +1,6 @@
 package com.SymundCloud.pages;
 
 
-
-
 import com.SymundCloud.utilities.BrowserUtils;
 import com.SymundCloud.utilities.Driver;
 import org.openqa.selenium.By;
@@ -70,7 +68,6 @@ public abstract class BasePage {
     }
 
 
-
     /**
      * This method will navigate user to the specific module in vytrack application.
      * For example: if tab is equals to Activities, and module equals to Calls,
@@ -96,7 +93,7 @@ public abstract class BasePage {
             Driver.getDriver().findElement(By.xpath(moduleLocator)).click();
         } catch (Exception e) {
 //            BrowserUtils.waitForStaleElement(Driver.get().findElement(By.xpath(moduleLocator)));
-            BrowserUtils.clickWithTimeOut(Driver.getDriver().findElement(By.xpath(moduleLocator)),  5);
+            BrowserUtils.clickWithTimeOut(Driver.getDriver().findElement(By.xpath(moduleLocator)), 5);
         }
     }
 
