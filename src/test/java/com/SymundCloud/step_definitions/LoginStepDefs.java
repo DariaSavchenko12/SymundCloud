@@ -17,12 +17,12 @@ public class LoginStepDefs {
         String username =null;
         String password =null;
 
-        if(userType.equalsIgnoreCase("driver")){
-            username = ConfigurationReader.getProperty("driver_username");
-            password = ConfigurationReader.getProperty("driver_password");
-        }else if(userType.equalsIgnoreCase("sales manager")){
-            username = ConfigurationReader.getProperty("sales_manager_username");
-            password = ConfigurationReader.getProperty("sales_manager_password");
+        if(userType.equalsIgnoreCase("users")){
+            username = ConfigurationReader.getProperty("users_username");
+            password = ConfigurationReader.getProperty("users_password");
+        }else if(userType.equalsIgnoreCase("employee")){
+            username = ConfigurationReader.getProperty("employee_username");
+            password = ConfigurationReader.getProperty("employee_password");
         }else if(userType.equalsIgnoreCase("store manager")){
             username = ConfigurationReader.getProperty("store_manager_username");
             password = ConfigurationReader.getProperty("store_manager_password");
