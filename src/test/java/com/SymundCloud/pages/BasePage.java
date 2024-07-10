@@ -96,5 +96,10 @@ public abstract class BasePage {
             BrowserUtils.clickWithTimeOut(Driver.getDriver().findElement(By.xpath(moduleLocator)), 5);
         }
     }
+    // need to test this method
+    public void clickModule (String moduleName){
+        WebElement module = Driver.getDriver().findElement(By.xpath("(//a[@aria-label='" + moduleName + "'])[1]"));
+        module.click();
+    }
 
 }
