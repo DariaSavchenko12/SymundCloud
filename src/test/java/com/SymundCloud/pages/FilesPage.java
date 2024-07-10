@@ -44,11 +44,14 @@ public class FilesPage {
 
 
 
+    @FindBy (xpath = "//span[@class='info']")
+    public WebElement allFilesSummary;
+
 
     @FindBy (xpath = "//span[@class='dirinfo']")
     public WebElement folderSummary;
 
-    @FindBy ()
+    @FindBy (xpath = "//span[@class='fileinfo']")
     public WebElement filesSummary;
 
 }
