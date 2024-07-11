@@ -1,6 +1,7 @@
 package com.SymundCloud.step_definitions;
 
 import com.SymundCloud.pages.LoginPage;
+import com.SymundCloud.utilities.BrowserUtils;
 import com.SymundCloud.utilities.ConfigurationReader;
 import io.cucumber.java.en.Given;
 
@@ -9,7 +10,8 @@ public class LoginStepDefs {
 
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {
-         System.out.println("Login to app in Before method");
+        System.out.println("Login to app in Before method");
+
     }
 
     @Given("the user logged in as {string}")
@@ -27,7 +29,10 @@ public class LoginStepDefs {
         }
         //send username and password and login
         new LoginPage().login(username, password);
+
+        BrowserUtils.verifyTitleContains("Dashboard");
     }
+
 
     @Given("the user logged in with username as {string} and password as {string}")
     public void the_user_logged_in_with_username_as_and_password_as(String username, String password) {
