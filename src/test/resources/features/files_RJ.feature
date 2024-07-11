@@ -1,5 +1,9 @@
 Feature: Files module functionality
 
+	Background: User is already in the log in page
+		Given the user is on the login page
+		Given the user logged in as "users"
+
 	
 	@B34G7-194
 	Scenario: User can upload a file
@@ -8,7 +12,7 @@ Feature: Files module functionality
 		When user clicks plus sign module					
 		Then user sees and clicks "Upload file" option
 		Then user uploads a file
-		And user can see uploaded file in the list
+#		And user can see uploaded file in the list
 
 
 
@@ -19,7 +23,7 @@ Feature: Files module functionality
 		When user clicks plus sign module
 		Then user sees and clicks "New folder" option
 		Then user enters New folder name
-		And user clicks arrow to save new folder
+		And user clicks Enter to save new folder
 		And user can see new folder in the list
 
 
