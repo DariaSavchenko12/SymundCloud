@@ -6,7 +6,7 @@ Feature: #*User Story :*
   @B34G7-188
   Scenario Outline: Creating a new conversation for a user
     Given "<userType>" is on the Symond home page
-    When "User clicks talk button
+    When User clicks talk button
     And User clicks create new conversation button
     When User types My Conversation in conversation name
     And User checks join via link checkbox
