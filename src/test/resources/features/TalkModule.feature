@@ -5,8 +5,8 @@ Feature: #*User Story :*
 	#User can create a new conversation by adding any selected participant
   @B34G7-188
   Scenario Outline: Creating a new conversation for a user
-    Given "<User>" is on the Symond home page
-    When User clicks talk button
+    Given "<userType>" is on the Symond home page
+    When "User clicks talk button
     And User clicks create new conversation button
     When User types My Conversation in conversation name
     And User checks join via link checkbox
@@ -26,8 +26,8 @@ Feature: #*User Story :*
 	#User can delete a conversation
   @B34G7-189
   Scenario Outline: Delete an existing conversation
-    Given "<user>" is on the Symond home page
-    When user clicks talk button
+    Given "<userType>" is on the Symond home page
+    When User clicks talk button
     And User clicks three dots button
     And User clicks delete conversation
     And User clicks yes on the pop up
