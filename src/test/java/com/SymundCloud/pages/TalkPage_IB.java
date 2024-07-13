@@ -25,7 +25,13 @@ public class TalkPage_IB {
     public WebElement createConversationButton;
     @FindBy(xpath = "//div[@class='navigation']/button")
     public WebElement closeButton;
-    @FindBy(xpath = "//span[@class='acli__content__line-one__title']")
+    @FindBy(xpath = "//span[normalize-space(text())='My conversation']")
     public WebElement newlyCreatedConversation;
+    @FindBy(xpath = "//div[@class='trigger']/button[1]")
+    public WebElement threeDotsButton;
+    @FindBy(xpath = "//span[text()='Delete conversation']")
+    public WebElement deleteConversationButton;
+    @FindBy(xpath = "//button[@class='primary']")
+    public WebElement yesDeleteConversationButton;
 
 }
