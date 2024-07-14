@@ -11,7 +11,7 @@ public class US001_SetStatusBtnPage {
 
         PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy(xpath = "//div[@id='settings']")  ////div[@class='footer']//a//id="settings" //id="settings"
+   @FindBy(xpath = "//div[@id='settings']")  ////div[@class='footer']//a//id="settings" //id="settings"
     public WebElement settingBtn;//id="expand"
 
     @FindBy(xpath = "//div[@id='settings']//div//span[1]") //(//div[@class='user-status-menu-item'])//span
@@ -27,10 +27,17 @@ public class US001_SetStatusBtnPage {
 
 
 
-   // @FindBy(xpath = "(//div[@class='user-status-menu-item'])//a")
-   // public WebElement setStatusBtn1;// new UsersatatusBtn//div[@id='settings']//div//span[1]a
+   @FindBy(xpath = "(//div[@class='user-status-menu-item'])//a")
+  public WebElement setStatusBtn1;// new UsersatatusBtn//div[@id='settings']//div//span[1]a
 
-   // @FindBy(xpath = "//div[@id='settings']//div//span[1]a")
-    //public WebElement StatusOptionBtn;
+
+   @FindBy(xpath = "//div[@class='user-status-online-select'][3]")// moved Customixepage
+  public WebElement doNotDisturbBtn;
+
+    @FindBy(id="status-status")
+    public WebElement setSettingBtn;
+
+    // @FindBy(xpath = "//div[@id='settings']//div//span[1]a")
+    // public WebElement StatusOptionBtn;   // moved from GitHub
 
 }

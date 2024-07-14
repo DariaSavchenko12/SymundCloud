@@ -13,7 +13,7 @@ public class US001_SetStatusBtnDefs {
     @When("Users click on Set status button")
     public void users_click_on_set_status_button() {
         BrowserUtils.sleep(10);
-        us01SetStatusBtnPage.settingBtn.click();//initial sittingBtn
+        us01SetStatusBtnPage.setSettingBtn.click();//initial sittingBtn
 
     }
 
@@ -28,22 +28,20 @@ public class US001_SetStatusBtnDefs {
     @When("Users click on Set status option  button")
     public void usersClickOnSetStatusOptionButton() {
         BrowserUtils.sleep(10);
-        us01SetStatusBtnPage.settingBtn.click(); // initial StatusOptionsBtn
+        us01SetStatusBtnPage.setSettingBtn.click(); // initial StatusOptionsBtn
+
 
     }
 
     @Then("Users choose any Status option")
     public void usersChooseAnyStatusOption() {
         us01SetStatusBtnPage.StatusOptionBtn.click();
+        Assert.assertTrue(us01SetStatusBtnPage.doNotDisturbBtn.isEnabled());
+
     }
-
-    //  @Then("Users choose any Status option")
-      // public void users_choose_any_status_option() throws InterruptedException {
-     //  BrowserUtils.sleep(5);
-     //  us01SetStatusBtnPage.StatusOptionBtn.click();
-
-
 }
 
 
-//}
+
+
+

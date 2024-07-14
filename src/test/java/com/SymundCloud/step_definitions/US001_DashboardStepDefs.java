@@ -1,6 +1,7 @@
 package com.SymundCloud.step_definitions;
 
 import com.SymundCloud.pages.LoginPage;
+import com.SymundCloud.utilities.BrowserUtils;
 import com.SymundCloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -26,6 +27,7 @@ public class US001_DashboardStepDefs {
     public void usersEnterUsernameAndPassword() {
         loginPage.userName.sendKeys("User1");
         loginPage.password.sendKeys("Userpass123");
+
 
 
     }
