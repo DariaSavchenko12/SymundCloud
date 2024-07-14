@@ -6,9 +6,7 @@ package com.SymundCloud.step_definitions;
 import com.SymundCloud.utilities.BrowserUtils;
 import com.SymundCloud.utilities.ConfigurationReader;
 import com.SymundCloud.utilities.Driver;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -17,10 +15,13 @@ import java.time.Duration;
 /*
 In this class we will be able to create "pre" and "post" condition
 for ALL the SCENARIOS and even STEPS.
- */
+*/
+
+
 public class Hooks {
 
     //import the @Before coming from io.cucumber.java
+
     @Before (order = 1)
     public void setupMethod(){
 
@@ -28,6 +29,8 @@ public class Hooks {
 
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
+
+
 
     //@Before (value = "@login", order = 2 )
     public void login_scenario_before(){
@@ -37,6 +40,7 @@ public class Hooks {
     /*
     @After will be executed automatically after EVERY scenario in the project.
      */
+
     @After
     public void teardownMethod(Scenario scenario){
 
@@ -46,20 +50,19 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", scenario.getName());
 
         }
-
-
-
-        BrowserUtils.sleep(2);
+        BrowserUtils.waitFor(2);
         Driver.closeDriver();
 
     }
 
-    //@BeforeStep
+
+
+    @BeforeStep
     public void setupStep(){
         System.out.println("-----> @BeforeSTEP : Running before each step!");
     }
 
-    //@AfterStep
+    @AfterStep
     public void teardownStep(){
         System.out.println("-----> @AfterSTEP : Running after each step!");
     }
