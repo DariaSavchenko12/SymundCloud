@@ -28,7 +28,7 @@ public class US001_SetStatusBtnDefs {
     @When("Users click on Set status option  button")
     public void usersClickOnSetStatusOptionButton() {
         BrowserUtils.sleep(10);
-        us01SetStatusBtnPage.setSettingBtn.click(); // initial StatusOptionsBtn
+        us01SetStatusBtnPage.setSettingBtn.click();
 
 
     }
