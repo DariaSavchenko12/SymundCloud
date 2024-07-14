@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
+
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -15,8 +16,7 @@ public class LoginPage {
     @FindBy(id = "user")
     public WebElement userName;
 
-
-    @FindBy(id = "password")
+    @FindBy(id="password")
     public WebElement password;
 
     @FindBy(id="submit-form")
