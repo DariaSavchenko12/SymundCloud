@@ -21,5 +21,13 @@ US001_CustomizePage us01_customizePage = new US001_CustomizePage();
         Assert.assertTrue(us01_customizePage.widgetsBtn.isDisplayed());
 
 
+
+
+    }
+
+    @When("users click statusLink")
+    public void usersClickStatusLink() {
+        us01_customizePage.statusLink.click();
+
     }
 }
