@@ -9,6 +9,7 @@ Background:
 
 	@B34G7-190
 	Scenario: After Login users can see all modules and Username.
+		When users click statusLink
 		Then Users see Employee name all modules
 
 	@B34G7-191
