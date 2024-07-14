@@ -7,13 +7,14 @@ import org.openqa.selenium.support.PageFactory;
 
 public class US001_CustomizePage {
 
-    public US001_CustomizePage(){
+    public US001_CustomizePage() {
 
-        PageFactory.initElements(Driver.getDriver(),this);
+        PageFactory.initElements(Driver.getDriver(), this);
 
     }
 
-    @FindBy(xpath = "(//a[@class='user-status-menu-item__toggle'])//span")  ////div[@class='footer']//a//id="settings"// id="setting"
+    @FindBy(xpath = "(//a[@class='user-status-menu-item__toggle'])//span")
+    ////div[@class='footer']//a//id="settings"// id="setting"
     public WebElement settingBtn;
 
 
@@ -21,12 +22,14 @@ public class US001_CustomizePage {
     @FindBy(xpath = "(//div[@class='footer'])//a")
     public WebElement customizeBtn;
 
- //   @FindBy(xpath = "(//li)[32]")
+  //  @FindBy(xpath = "(//li)[32]")
   //  public WebElement widgetsBtn;
 
-    @FindBy(xpath = "//li")
-    public WebElement widgetsBtn;
+     @FindBy(xpath = "//li")
+     public WebElement widgetsBtn;
 
+     @FindBy(xpath = "//div[@id='settings']")
+    public WebElement statusLink;
 
 
 }
