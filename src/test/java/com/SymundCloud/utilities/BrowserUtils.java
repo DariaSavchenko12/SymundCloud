@@ -274,6 +274,7 @@ public class BrowserUtils {
         }
     }
 
+
     /**
      * Verifies whether the element matching the provided locator is NOT displayed on page
      *
@@ -482,6 +483,9 @@ public class BrowserUtils {
      */
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time)).until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+    public static boolean isElementVisible(WebElement element) {
+        try { return element.isDisplayed(); } catch (Exception ignored) { return false; }
     }
 
 
