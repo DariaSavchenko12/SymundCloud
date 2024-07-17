@@ -3,7 +3,10 @@ package com.SymundCloud.step_definitions;
 import com.SymundCloud.pages.LoginPage;
 import com.SymundCloud.utilities.BrowserUtils;
 import com.SymundCloud.utilities.ConfigurationReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class LoginStepDefs {
 
@@ -39,6 +42,7 @@ public class LoginStepDefs {
         LoginPage loginPage = new LoginPage();
         loginPage.login(username, password);
     }
+
 
 
 }
