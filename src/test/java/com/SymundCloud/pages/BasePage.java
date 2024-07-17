@@ -97,7 +97,7 @@ public abstract class BasePage {
         }
     }
     // need to test this method
-    public void clickModule (String moduleName){
+    public static void clickModule(String moduleName){
         WebElement module = Driver.getDriver().findElement(By.xpath("(//a[@aria-label='" + moduleName + "'])[1]"));
         module.click();
     }
