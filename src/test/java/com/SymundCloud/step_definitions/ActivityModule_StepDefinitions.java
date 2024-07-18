@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
 
-public class ActivityModule_StepDefinitions{
+public class ActivityModule_StepDefinitions {
 
     LoginStepDefs loginStepDefs = new LoginStepDefs();
     ActivityModulePage_Annia activityModulePage = new ActivityModulePage_Annia();
@@ -23,6 +23,7 @@ public class ActivityModule_StepDefinitions{
     public void is_logged_in(String usertype) {
 
         loginStepDefs.the_user_logged_in_as(usertype);
+        BrowserUtils.waitFor(2);
 
     }
 
@@ -43,62 +44,15 @@ public class ActivityModule_StepDefinitions{
     @Then("user is able to see all items links displayed")
     public void user_is_able_to_see_all_items_links_displayed() {
 
-        Set<WebElement> links = new LinkedHashSet<>(Arrays.asList(
-                activityModulePage.allActivitiesLink,
-                activityModulePage.byYouLink,
-                activityModulePage.byOthersLink,
-                activityModulePage.circlesLink,
-                activityModulePage.favoritesLink,
-                activityModulePage.fileChangesLink,
-                activityModulePage.fileSharesLink,
-                activityModulePage.calendarLink,
-                activityModulePage.todosLink,
-                activityModulePage.commentsLink,
-                activityModulePage.deckLink
-        ));
-        for (WebElement eachLink : links) {
-            BrowserUtils.verifyElementDisplayed(eachLink);
-        }
+        activityModulePage.allItemsLinksDisplayed();
 
     }
 
     @Then("user can see all items list ordered by newest to oldest.")
     public void userCanSeeAllItemsListOrderedByNewestToOldest() {
 
-        List<WebElement> orderedItems = Arrays.asList(
-                activityModulePage.newestItem,
-                activityModulePage.middleNewestItem,
-                activityModulePage.oldestItem
-        );
+        activityModulePage.orderedItems();
 
-        List<LocalDateTime> timestamps = new ArrayList<>();
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy h:mm a");
-
-        for (WebElement eachOrderedItem : orderedItems) {
-            String timeText = eachOrderedItem.getAttribute("data-original-title").trim();
-            try {
-                LocalDateTime time = LocalDateTime.parse(timeText, formatter);
-                timestamps.add(time);
-            } catch (DateTimeParseException e) {
-                System.out.println("Failed to parse date: " + timeText);
-                e.printStackTrace();
-            }
-        }
-
-        boolean isOrderCorrect = true;
-        for (int i = 0; i < timestamps.size() - 1; i++) {
-            if (!timestamps.get(i).isAfter(timestamps.get(i + 1))) {
-                isOrderCorrect = false;
-                break;
-            }
-        }
-
-        if (isOrderCorrect) {
-            System.out.println("Activities are in the correct order (newest to oldest).");
-        } else {
-            System.out.println("Activities are NOT in the correct order.");
-        }
     }
 //        List<String> itemsText = new ArrayList<>();
 //        for (WebElement eachOrderedItem : orderedItems) {

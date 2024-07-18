@@ -1,9 +1,15 @@
 package com.SymundCloud.pages;
 
+import com.SymundCloud.utilities.BrowserUtils;
 import com.SymundCloud.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.*;
 
 public class ActivityModulePage_Annia {
 
@@ -62,7 +68,49 @@ public class ActivityModulePage_Annia {
     @FindBy(xpath = "//div[@id='no_more_activities']")
     public WebElement noMoreEvents;
 
+    public void allItemsLinksDisplayed() {
+        Set<WebElement> links = new LinkedHashSet<>(Arrays.asList(allActivitiesLink, byYouLink, byOthersLink, circlesLink, favoritesLink, fileChangesLink, fileSharesLink, calendarLink, todosLink, commentsLink, deckLink));
+
+        for (WebElement eachLink : links) {
+            BrowserUtils.verifyElementDisplayed(eachLink);
+        }
+
+    }
+
+    public void orderedItems() {
+
+        List<WebElement> orderedItems = Arrays.asList(newestItem, middleNewestItem, oldestItem);
+
+        List<LocalDateTime> timestamps = new ArrayList<>();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy h:mm a");
+
+        for (WebElement eachOrderedItem : orderedItems) {
+            String timeText = eachOrderedItem.getAttribute("data-original-title").trim();
+            try {
+                LocalDateTime time = LocalDateTime.parse(timeText, formatter);
+                timestamps.add(time);
+            } catch (DateTimeParseException e) {
+                System.out.println("Failed to parse date: " + timeText);
+                e.printStackTrace();
+            }
+        }
+
+        boolean isOrderCorrect = true;
+        for (int i = 0; i < timestamps.size() - 1; i++) {
+            if (!timestamps.get(i).isAfter(timestamps.get(i + 1))) {
+                isOrderCorrect = false;
+                break;
+            }
+        }
+
+        if (isOrderCorrect) {
+            System.out.println("Activities are in the correct order (newest to oldest).");
+        } else {
+            System.out.println("Activities are NOT in the correct order.");
+        }
+
+
+    }
 
 }
-
-
