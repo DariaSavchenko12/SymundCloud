@@ -17,5 +17,9 @@ public class ProfileSettingsPage_IB {
     public WebElement settingsButton;
     @FindBy(xpath = "//div[@class='personal-settings-container']/div//label")
     public List<WebElement> titleNames;
+    @FindBy(xpath = "//div[@class='user-status-menu-item']/span")
+    public WebElement nameInTheIconMenu;
+    @FindBy(xpath = "//input[@id='displayname']")
+    public WebElement nameInTheSettingsMenu;
 
 }
