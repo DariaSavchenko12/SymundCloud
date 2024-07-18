@@ -1,5 +1,6 @@
 package com.SymundCloud.pages;
 
+import com.SymundCloud.utilities.BrowserUtils;
 import com.SymundCloud.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -55,7 +56,7 @@ public class ContactsModulePage_Daria {
 
 
     public List<WebElement> getAllProperties() {
-        return Driver.getDriver().findElements(By.xpath("//input[@placeholder ='Choose property type']"));
+        return Driver.getDriver().findElements(By.xpath("(//ul[@class ='multiselect__content'])[7]"));
     }
 
 
@@ -76,6 +77,38 @@ public class ContactsModulePage_Daria {
 
     @FindBy(xpath = "(//button[@type = 'button'])[8]")
     public WebElement OkButton;
+
+    @FindBy(xpath = "(//ul[@class ='multiselect__content'])[7]")
+    public WebElement unorderedList;
+
+
+    public WebElement selectAllProperties(String property) {
+
+        List<WebElement> listElements = unorderedList.findElements(By.tagName("li"));
+        System.out.println(property);
+        for (WebElement element : listElements) {
+            System.out.println("element = " + element.getAttribute("title") + ", property " + property);
+            if (element.getText().equalsIgnoreCase(property)) {
+                System.out.println("Hello");
+                BrowserUtils.sleep(10);
+                element.click();
+                return element;
+
+            }
+
+        }
+
+
+        return null;
+
+    }
 }
+
+
+
+
+
+
+
 
 

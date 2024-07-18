@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         glue = "com/SymundCloud/step_definitions",
         dryRun = false,
 
- B34G7-173_ContactsModule_DP
+
         tags = " @B34G7-209",
         publish = true //generating a report with public link
 

@@ -5,6 +5,7 @@ import com.SymundCloud.pages.ContactsModulePage_Daria;
 import com.SymundCloud.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 
 public class ContactsInfoPropertyStepDefs_Daria {
@@ -21,21 +22,20 @@ public class ContactsInfoPropertyStepDefs_Daria {
 
     @When("selects {string}")
     public void selects(String property) {
-        contactsModule.anniversaryProperty.click();
-        System.out.println(property);
+        contactsModule.selectAllProperties(property);
+
 
     }
 
     @When("enters the anniversary date {string}")
     public void enters_the_anniversary_date(String data) {
-        anniversaryDate.enterAnniversaryDate(data);
+
 
 
     }
 
     @When("saves the contact information")
     public void saves_the_contact_information() {
-        contactsModule.OkButton.click();
 
     }
 
