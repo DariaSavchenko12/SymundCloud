@@ -20,10 +20,12 @@ public class ProfileSettingsStepDefinition_IB {
     public void user_clicks_name_icon() {
         profileSettingsPageIb.nameIcon.click();
     }
+
     @When("User clicks settings button")
     public void user_clicks_settings_button() {
         profileSettingsPageIb.settingsButton.click();
     }
+
     @Then("User can see provided titles")
     public void user_can_see_provided_titles() {
         List<String> expectedTitles = new ArrayList<>(Arrays.asList("Full name", "Email", "Phone number"));
@@ -35,4 +37,16 @@ public class ProfileSettingsStepDefinition_IB {
         Assert.assertTrue(currentTitles.containsAll(expectedTitles));
     }
 
+    @When("User clicks name icon and records the name")
+    public void userClicksNameIconAndRecordsTheName() {
+        profileSettingsPageIb.nameIcon.click();
+
+    }
+
+    @Then("User compares specified names")
+    public void userComparesSpecifiedNames() {
+        profileSettingsPageIb.nameIcon.click();
+        Assert.assertEquals(profileSettingsPageIb.nameInTheIconMenu.getText(), profileSettingsPageIb.nameInTheSettingsMenu.getAttribute("value"));
+
+    }
 }
