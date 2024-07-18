@@ -21,5 +21,9 @@ public class ProfileSettingsPage_IB {
     public WebElement nameInTheIconMenu;
     @FindBy(xpath = "//input[@id='displayname']")
     public WebElement nameInTheSettingsMenu;
+    @FindBy(xpath = "//input[@id='phone']")
+    public WebElement phoneInputBox;
+    @FindBy(xpath = "//body[@id='body-settings']/div[1]")
+    public WebElement invalidPhoneNumberMessage;
 
 }

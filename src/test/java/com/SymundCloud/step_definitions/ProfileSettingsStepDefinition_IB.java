@@ -2,12 +2,14 @@ package com.SymundCloud.step_definitions;
 
 import com.SymundCloud.pages.ProfileSettingsPage_IB;
 import com.SymundCloud.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
+import java.util.AbstractSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -47,6 +49,22 @@ public class ProfileSettingsStepDefinition_IB {
     public void userComparesSpecifiedNames() {
         profileSettingsPageIb.nameIcon.click();
         Assert.assertEquals(profileSettingsPageIb.nameInTheIconMenu.getText(), profileSettingsPageIb.nameInTheSettingsMenu.getAttribute("value"));
+
+    }
+
+    @And("User enters required data")
+    public void userEntersRequiredData() {
+        profileSettingsPageIb.phoneInputBox.clear();
+        profileSettingsPageIb.phoneInputBox.sendKeys("+17734579898");
+
+    }
+
+    @Then("User asserts the input box only accepts numbers")
+    public void userAssertsTheInputBoxOnlyAcceptsNumbers() {
+        profileSettingsPageIb.phoneInputBox.clear();
+        profileSettingsPageIb.phoneInputBox.sendKeys("Adoe52--23");
+
+        Assert.assertTrue(profileSettingsPageIb.invalidPhoneNumberMessage.isDisplayed());
 
     }
 }
