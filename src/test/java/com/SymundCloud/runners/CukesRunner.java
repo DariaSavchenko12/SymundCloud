@@ -17,10 +17,14 @@ import org.junit.runner.RunWith;
         dryRun = false,
 
 
-        tags = " @B34G7-209",
+
+       tags = " @B34G7-209",
+=======
+        tags = "",
         publish = true //generating a report with public link
 
       
+
 
 )
 public class CukesRunner {
