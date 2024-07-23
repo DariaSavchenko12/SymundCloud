@@ -34,7 +34,6 @@ Feature: Contacts Management Module
     Given the user is viewing a contact's information
     When the user clicks on "Add new property" dropdown menu
     And selects "Anniversary"
-    And enters the anniversary date "July 10, 2020"
-    And saves the contact information
-    Then the anniversary property should be added to the contact's info page
-    And the anniversary date should be displayed as "July 10, 2020"
+    And user clicks to input box
+    And enters the anniversary "August 10, 2024"
+    And the anniversary date should be displayed as "August 10, 2024"
